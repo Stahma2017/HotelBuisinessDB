@@ -24,14 +24,11 @@ class HotelsActivity : AppCompatActivity() {
         hotelsRec.adapter = adapter
 
         db = MyDataBase.getAppDataBase(this)
-        newList = db?.hotelDao()?.all!!
-        adapter.setList(newList)
-
-       /* Observable.fromCallable{
+        Observable.fromCallable{
             newList = db?.hotelDao()?.all!!
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { adapter.setList(newList) }*/
+            .subscribe { adapter.setList(newList) }
 
 
     }

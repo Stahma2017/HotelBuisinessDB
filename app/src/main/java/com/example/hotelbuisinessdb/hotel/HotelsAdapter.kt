@@ -25,7 +25,7 @@ class HotelsAdapter : RecyclerView.Adapter<HotelsAdapter.HotelViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: HotelsAdapter.HotelViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HotelViewHolder, position: Int) {
         holder.bind(list[position])
     }
 

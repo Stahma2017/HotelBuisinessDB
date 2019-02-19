@@ -1,0 +1,54 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/idOrder"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/daySpan"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/startDay"
+            android:textSize="14sp"
+            android:layout_weight="2"/>
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/clientId"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomId"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+    <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/peymentId"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+</LinearLayout>

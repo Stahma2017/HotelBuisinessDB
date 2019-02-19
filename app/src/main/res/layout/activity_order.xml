@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".order.OrderActivity"
+        android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="ID"
+                  android:textSize="16sp"
+                  android:layout_weight="1"/>
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="дней"
+                  android:textSize="16sp"
+                  android:layout_weight="1"/>
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="дата заезда"
+                  android:textSize="16sp"
+                  android:layout_weight="2"/>
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="ID Клиента"
+                  android:textSize="14sp"
+                  android:layout_weight="1"/>
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="ID Комнаты"
+                  android:textSize="14sp"
+                  android:layout_weight="1"/>
+
+        <TextView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:text="ID Оплаты"
+                  android:textSize="14sp"
+                  android:layout_weight="1"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/orderRec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

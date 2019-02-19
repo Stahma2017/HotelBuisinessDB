@@ -8,7 +8,7 @@ import com.example.hotelbuisinessdb.dao.*
 import com.example.hotelbuisinessdb.entity.*
 
 @Database(
-    entities = [Hotel::class, Department::class, Position::class, com.example.hotelbuisinessdb.entity.Room::class, Category::class, Payment::class, Client::class],
+    entities = [Hotel::class, Department::class, Position::class, com.example.hotelbuisinessdb.entity.Room::class, Category::class, Payment::class, Client::class, Employee::class, Order::class],
     version = 1
 )
 abstract class MyDataBase : RoomDatabase() {
@@ -17,11 +17,9 @@ abstract class MyDataBase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun clientDao(): ClientDao
     abstract fun departmentDao(): DepartmentDao
-
-    /*abstract fun employeeDao(): EmployeeDao*/
-    //  abstract fun orderDao(): OrderDao
+    abstract fun employeeDao(): EmployeeDao
+    abstract fun orderDao(): OrderDao
     abstract fun paymentDao(): PaymentDao
-
     abstract fun positionDao(): PositionDao
     abstract fun roomDao(): RoomDao
 

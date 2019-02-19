@@ -10,6 +10,7 @@ import com.example.hotelbuisinessdb.employee.EmployeeActivity
 import com.example.hotelbuisinessdb.entity.Hotel
 import com.example.hotelbuisinessdb.entity.Room
 import com.example.hotelbuisinessdb.hotel.HotelsActivity
+import com.example.hotelbuisinessdb.order.OrderActivity
 import com.example.hotelbuisinessdb.payment.PaymentActivity
 import com.example.hotelbuisinessdb.room.RoomActivity
 import io.reactivex.Observable
@@ -45,12 +46,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intentToClients)
         }
 
-        /*
      ordersBtn.setOnClickListener {
-         val intentToOrders = Intent(this, )
+         val intentToOrders = Intent(this, OrderActivity::class.java)
          startActivity(intentToOrders)
      }
-     */
 
         paymentBtn.setOnClickListener {
             val intentToPayments = Intent(this, PaymentActivity::class.java)
@@ -73,12 +72,12 @@ class MenuActivity : AppCompatActivity() {
 
 
 
-        db = MyDataBase.getAppDataBase(this)
+      /*  db = MyDataBase.getAppDataBase(this)
         Observable.fromCallable{db?.hotelDao()?.insert(Hotel(address = "blabla", phone = 234234))}
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
-
+*/
         /*
 
         Observable.fromCallable{
