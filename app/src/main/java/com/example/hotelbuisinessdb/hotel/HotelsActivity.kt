@@ -1,5 +1,6 @@
 package com.example.hotelbuisinessdb.hotel
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -22,6 +23,11 @@ class HotelsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hotels)
         hotelsRec.layoutManager =   LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         hotelsRec.adapter = adapter
+
+        addBtn.setOnClickListener {
+            val intentToHotelsDetails = Intent(this, HotelDetailsActivity::class.java)
+            startActivity(intentToHotelsDetails)
+        }
 
         db = MyDataBase.getAppDataBase(this)
         Observable.fromCallable{

@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".hotel.HotelsActivity"
-android:orientation="vertical">
-
-<LinearLayout android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="ID"
-              android:textSize="22sp"
-              android:layout_weight="1"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Адрес"
-              android:textSize="22sp"
-              android:layout_weight="3"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Телефон"
-              android:textSize="22sp"
-              android:layout_weight="2"/>
-</LinearLayout>
-
-<android.support.v7.widget.RecyclerView
-        android:id="@+id/hotelsRec"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        tools:context=".hotel.HotelsActivity"
+        android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="ID"
+                  android:textSize="22sp"
+                  android:layout_weight="1"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Адрес"
+                  android:textSize="22sp"
+                  android:layout_weight="3"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Телефон"
+                  android:textSize="22sp"
+                  android:layout_weight="2"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/hotelsRec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+
+                android:id="@+id/addBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:background="#3991ff"
+        android:layout_margin="10dp"/>
+    </RelativeLayout>
+
+
+
+
+
 </LinearLayout>
