@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hotelbuisinessdb.R
 import com.example.hotelbuisinessdb.entity.Client
+import com.example.hotelbuisinessdb.entity.Hotel
 import kotlinx.android.synthetic.main.item_client.view.*
+
 
 class ClientAdapter : RecyclerView.Adapter<ClientAdapter.ClientViewHolder>(){
 
     private var list = mutableListOf<Client>()
+    var onClickListener: (Client) -> Unit = {}
 
     fun setList(newList: List<Client>) {
         list.clear()
@@ -37,6 +40,9 @@ class ClientAdapter : RecyclerView.Adapter<ClientAdapter.ClientViewHolder>(){
                 sName.text = model.secondName
                 passport.text = model.passportNumber.toString()
                 phone.text = model.phone.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
             }
 
         }

@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.item_employee.view.*
 class EmployeeAdapter : RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>(){
 
     private var list = mutableListOf<Employee>()
+    var onClickListener: (Employee) -> Unit = {}
 
     fun setList(newList: List<Employee>){
         list.clear()
@@ -36,6 +37,9 @@ class EmployeeAdapter : RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>
                 idPosition.text = model.positionId.toString()
                 fName.text = model.firstName
                 sName.text = model.secondName
+                itemContainer.setOnClickListener {
+                    onClickListener.invoke(model)
+                }
             }
         }
 

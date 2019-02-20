@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.item_payment.view.*
 class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>(){
 
     private var list = mutableListOf<Payment>()
+    var onClickListener: (Payment) -> Unit = {}
+
 
     fun setList(newList: List<Payment>) {
         list.clear()
@@ -37,6 +39,9 @@ class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>(){
                 paymentId.text = model.id.toString()
                 card.text = model.creditNumber.toString()
                 cost.text = model.cost.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
             }
 
         }

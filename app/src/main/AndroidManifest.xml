@@ -9,6 +9,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".order.OrderDetailsActivity">
+        </activity>
+        <activity android:name=".room.RoomDetailsActivity">
+        </activity>
+        <activity android:name=".payment.PaymentDetailsActivity">
+        </activity>
+        <activity android:name=".department.DepartmentDetailsActivity">
+        </activity>
+        <activity android:name=".client.ClientDetailsActivity">
+        </activity>
+        <activity android:name=".employee.EmployeeDetailsActivity">
+        </activity>
         <activity android:name=".hotel.HotelDetailsActivity">
         </activity>
         <activity android:name=".order.OrderActivity">

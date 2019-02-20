@@ -1,5 +1,6 @@
 package com.example.hotelbuisinessdb.payment
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -24,8 +25,31 @@ class PaymentActivity : AppCompatActivity() {
         paymentRec.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         paymentRec.adapter = adapter
 
+        addBtn.setOnClickListener {
+            val intentToHotelsDetails = Intent(this, PaymentDetailsActivity::class.java)
+            startActivity(intentToHotelsDetails)
+        }
+
         db = MyDataBase.getAppDataBase(this)
-        Observable.fromCallable{
+        Observable.fromCallable {
+            newList = db?.paymentDao()?.all!!
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { adapter.setList(newList) }
+
+        adapter.onClickListener = {
+            Observable.fromCallable {
+                db?.paymentDao()?.delete(it)
+                newList = db?.paymentDao()?.all!!
+            }.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { adapter.setList(newList) }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Observable.fromCallable {
             newList = db?.paymentDao()?.all!!
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

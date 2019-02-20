@@ -2,6 +2,7 @@ package com.example.hotelbuisinessdb.hotel
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.hotelbuisinessdb.MyDataBase
 import com.example.hotelbuisinessdb.R
 import com.example.hotelbuisinessdb.entity.Hotel
@@ -16,7 +17,13 @@ class HotelDetailsActivity : AppCompatActivity() {
 
         okBtn.setOnClickListener {
             db = MyDataBase.getAppDataBase(this)
-            db?.hotelDao()?.insert(hotel = Hotel(address = addressET.text.toString(), phone = Integer.parseInt(phoneET.text.toString())))
+            db?.hotelDao()?.insert(
+                hotel = Hotel(
+                    address = addressET.text.toString(),
+                    phone = Integer.parseInt(phoneET.text.toString())
+                )
+            )
+            Toast.makeText(this, "Опалат добавлена", Toast.LENGTH_SHORT).show()
         }
     }
 }

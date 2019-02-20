@@ -11,12 +11,14 @@ import kotlinx.android.synthetic.main.item_hotel.view.*
 class HotelsAdapter : RecyclerView.Adapter<HotelsAdapter.HotelViewHolder>() {
 
     private var list = mutableListOf<Hotel>()
+    var onClickListener: (Hotel) -> Unit = {}
 
     fun setList(newList: List<Hotel>) {
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotelViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_hotel, parent, false)
@@ -35,6 +37,9 @@ class HotelsAdapter : RecyclerView.Adapter<HotelsAdapter.HotelViewHolder>() {
                 idHotel.text = model.id.toString()
                 addressHotel.text = model.address
                 phoneNumber.text = model.phone.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
             }
         }
     }

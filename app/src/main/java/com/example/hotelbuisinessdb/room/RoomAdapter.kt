@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.item_room.view.*
 class RoomAdapter : RecyclerView.Adapter<RoomAdapter.RoomViewHolder>(){
 
     private var list = mutableListOf<Room>()
+    var onClickListener: (Room) -> Unit = {}
 
     fun setList(newList: List<Room>) {
         list.clear()
@@ -37,6 +38,9 @@ class RoomAdapter : RecyclerView.Adapter<RoomAdapter.RoomViewHolder>(){
                 doorNumber.text = model.doorNumber.toString()
                 description.text = model.description
                 categoryID.text = model.categoryId.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
             }
         }
     }

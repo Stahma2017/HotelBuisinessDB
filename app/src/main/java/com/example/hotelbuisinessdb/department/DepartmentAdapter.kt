@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.item_department.view.*
 class DepartmentAdapter : RecyclerView.Adapter<DepartmentAdapter.DepartmentViewHolder>(){
 
     private var list = mutableListOf<Department>()
+    var onClickListener: (Department) -> Unit = {}
 
     fun setList(newList: List<Department>) {
         list.clear()
@@ -35,6 +36,9 @@ class DepartmentAdapter : RecyclerView.Adapter<DepartmentAdapter.DepartmentViewH
                 departmentId.text = model.id.toString()
                 name.text = model.name
                 hotelId.text = model.hotelId.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
             }
         }
     }

@@ -9,7 +9,6 @@ import com.example.hotelbuisinessdb.R
 import com.example.hotelbuisinessdb.entity.Hotel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_hotels.*
 
@@ -21,7 +20,7 @@ class HotelsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotels)
-        hotelsRec.layoutManager =   LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        hotelsRec.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         hotelsRec.adapter = adapter
 
         addBtn.setOnClickListener {
@@ -30,12 +29,29 @@ class HotelsActivity : AppCompatActivity() {
         }
 
         db = MyDataBase.getAppDataBase(this)
-        Observable.fromCallable{
+        Observable.fromCallable {
             newList = db?.hotelDao()?.all!!
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { adapter.setList(newList) }
 
-
+        adapter.onClickListener = {
+            Observable.fromCallable {
+                db?.hotelDao()?.delete(it)
+                newList = db?.hotelDao()?.all!!
+            }.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { adapter.setList(newList) }
+        }
     }
+
+    override fun onResume() {
+        super.onResume()
+        Observable.fromCallable {
+            newList = db?.hotelDao()?.all!!
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { adapter.setList(newList) }
+    }
+
 }

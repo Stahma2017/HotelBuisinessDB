@@ -7,7 +7,9 @@ import android.os.Bundle
 import com.example.hotelbuisinessdb.client.ClientActivity
 import com.example.hotelbuisinessdb.department.DepartmentActivity
 import com.example.hotelbuisinessdb.employee.EmployeeActivity
+import com.example.hotelbuisinessdb.entity.Category
 import com.example.hotelbuisinessdb.entity.Hotel
+import com.example.hotelbuisinessdb.entity.Position
 import com.example.hotelbuisinessdb.entity.Room
 import com.example.hotelbuisinessdb.hotel.HotelsActivity
 import com.example.hotelbuisinessdb.order.OrderActivity
@@ -63,7 +65,7 @@ class MenuActivity : AppCompatActivity() {
 
 
 
-        logoutBtn.setOnClickListener {  }
+        logoutBtn.setOnClickListener { finish() }
 
 
 
@@ -72,12 +74,25 @@ class MenuActivity : AppCompatActivity() {
 
 
 
-      /*  db = MyDataBase.getAppDataBase(this)
-        Observable.fromCallable{db?.hotelDao()?.insert(Hotel(address = "blabla", phone = 234234))}
+      /* db = MyDataBase.getAppDataBase(this)
+        Observable.fromCallable{
+            db?.positionDao()?.insert(Position(name = "Мэнэджер", departmentId = 1))
+            db?.positionDao()?.insert(Position(name = "Старший  Мэнэджер", departmentId = 2))
+            db?.positionDao()?.insert(Position(name = "Администратор", departmentId = 4))
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()*/
+
+/*
+
+        db = MyDataBase.getAppDataBase(this)
+        Observable.fromCallable{db?.categoryDao()?.insert(Category(name = "Люкс", personAmount = 2, cost = 1000))}
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
 */
+
         /*
 
         Observable.fromCallable{
@@ -86,9 +101,6 @@ class MenuActivity : AppCompatActivity() {
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()*/
-
-
-
 
 
 

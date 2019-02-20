@@ -1,7 +1,6 @@
 package com.example.hotelbuisinessdb.order
 
 import android.support.v7.widget.RecyclerView
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import kotlinx.android.synthetic.main.item_order.view.*
 class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>(){
 
     private var list = mutableListOf<Order>()
+    var onClickListener: (Order) -> Unit = {}
 
     fun setList(newList: List<Order>) {
         list.clear()
@@ -39,6 +39,10 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.OrderViewHolder>(){
                 clientId.text = model.clientId.toString()
                 roomId.text = model.roomId.toString()
                 peymentId.text = model.paymentId.toString()
+                itemContainer.setOnClickListener{
+                    onClickListener.invoke(model)
+                }
+
             }
         }
     }
