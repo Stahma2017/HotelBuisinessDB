@@ -7,7 +7,6 @@ import com.example.hotelbuisinessdb.login.Account
 import kotlinx.android.synthetic.main.activity_main.*
 
 class SignInActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,8 +21,4 @@ class SignInActivity : AppCompatActivity() {
            }
         }
     }
-
-
-
-
 }

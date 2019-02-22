@@ -3,7 +3,9 @@ package com.example.hotelbuisinessdb.client
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.example.hotelbuisinessdb.MyDataBase
 import com.example.hotelbuisinessdb.R
 import com.example.hotelbuisinessdb.employee.EmployeeDetailsActivity
@@ -39,17 +41,23 @@ class ClientActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { adapter.setList(newList) }
 
-
-
         adapter.onClickListener = {
-            Observable.fromCallable {
-                db?.clientDao()?.delete(it)
-                newList = db?.clientDao()?.all!!
-            }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { adapter.setList(newList) }
+            val dialog = AlertDialog.Builder(this)
+                .setTitle(it.name)
+                .setMessage("Хотите удалить ${it.name} ?")
+                .setPositiveButton("Да") { _, _ ->
+                    Observable.fromCallable {
+                        db?.clientDao()?.delete(it)
+                        newList = db?.clientDao()?.all!!
+                    }.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe { adapter.setList(newList) }
+                }.setNegativeButton("Нет") { dialog, which ->
+                    dialog.dismiss()
+                }.show()
         }
     }
+
     override fun onResume() {
         super.onResume()
         Observable.fromCallable {

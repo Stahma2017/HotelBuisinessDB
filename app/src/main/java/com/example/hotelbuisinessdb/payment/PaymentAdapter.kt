@@ -37,7 +37,7 @@ class PaymentAdapter : RecyclerView.Adapter<PaymentAdapter.PaymentViewHolder>(){
         fun bind(model: Payment){
             with(itemView){
                 paymentId.text = model.id.toString()
-                card.text = model.creditNumber.toString()
+                card.text = model.creditType
                 cost.text = model.cost.toString()
                 itemContainer.setOnClickListener{
                     onClickListener.invoke(model)

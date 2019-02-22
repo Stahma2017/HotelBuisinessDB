@@ -9,7 +9,7 @@ import com.example.hotelbuisinessdb.entity.*
 
 @Database(
     entities = [Hotel::class, Department::class, Position::class, com.example.hotelbuisinessdb.entity.Room::class, Category::class, Payment::class, Client::class, Employee::class, Order::class],
-    version = 1
+    version = 3
 )
 abstract class MyDataBase : RoomDatabase() {
 

@@ -23,7 +23,7 @@ class HotelDetailsActivity : AppCompatActivity() {
                     phone = Integer.parseInt(phoneET.text.toString())
                 )
             )
-            Toast.makeText(this, "Опалат добавлена", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Отель добавлен", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -23,7 +23,7 @@ class DepartmentDetailsActivity : AppCompatActivity() {
                  hotelId = Integer.parseInt(hotelId.text.toString())
                 )
             )
-            Toast.makeText(this, "Отель добавлен", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Отдел добавлен", Toast.LENGTH_SHORT).show()
         }
 
     }

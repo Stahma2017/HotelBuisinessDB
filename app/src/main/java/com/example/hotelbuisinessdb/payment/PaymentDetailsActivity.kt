@@ -18,11 +18,11 @@ class PaymentDetailsActivity : AppCompatActivity() {
             db = MyDataBase.getAppDataBase(this)
             db?.paymentDao()?.insert(
                 Payment(
-                   creditNumber = Integer.parseInt(card.text.toString()),
+                   creditType = card.text.toString(),
                     cost = Integer.parseInt(cost.text.toString())
                 )
             )
-            Toast.makeText(this, "Отель добавлен", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Оплата добавлена", Toast.LENGTH_SHORT).show()
         }
     }
 }

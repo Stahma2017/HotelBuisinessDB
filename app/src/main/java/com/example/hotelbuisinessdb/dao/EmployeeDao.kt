@@ -6,7 +6,6 @@ import com.example.hotelbuisinessdb.entity.Employee
 
 @Dao
 interface EmployeeDao {
-
     @get:Query("SELECT * FROM employee")
     val all: List<Employee>
 
@@ -22,4 +21,6 @@ interface EmployeeDao {
     @Delete
     fun delete(employee: Employee)
 
+ /*   @Insert
+    fun insertBothEmployees(employee1: Employee, employee2: Employee)*/
 }

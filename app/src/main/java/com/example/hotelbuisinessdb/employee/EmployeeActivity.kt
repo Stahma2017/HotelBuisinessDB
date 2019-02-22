@@ -3,6 +3,7 @@ package com.example.hotelbuisinessdb.employee
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import com.example.hotelbuisinessdb.MyDataBase
 import com.example.hotelbuisinessdb.R
@@ -37,12 +38,19 @@ class EmployeeActivity : AppCompatActivity() {
             .subscribe()
 
         adapter.onClickListener = {
-            Observable.fromCallable {
-                db?.employeeDao()?.delete(it)
-                newList = db?.employeeDao()?.all!!
-            }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { adapter.setList(newList) }
+            val dialog = AlertDialog.Builder(this)
+                .setTitle(it.secondName)
+                .setMessage("Хотите удалить ${it.secondName} ?")
+                .setPositiveButton("Да") { _, _ ->
+                    Observable.fromCallable {
+                        db?.employeeDao()?.delete(it)
+                        newList = db?.employeeDao()?.all!!
+                    }.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe { adapter.setList(newList) }
+                }.setNegativeButton("Нет") { dialog, which ->
+                    dialog.dismiss()
+                }.show()
         }
     }
 

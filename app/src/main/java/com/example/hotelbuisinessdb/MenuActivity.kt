@@ -33,25 +33,25 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intentToHotels)
         }
 
-        employeesBtn.setOnClickListener{
+        employeesBtn.setOnClickListener {
             val intentToEmployees = Intent(this, EmployeeActivity::class.java)
             startActivity(intentToEmployees)
         }
 
-       roomBtn.setOnClickListener{
+        roomBtn.setOnClickListener {
             val intentToRooms = Intent(this, RoomActivity::class.java)
             startActivity(intentToRooms)
         }
 
-        clientsBtn.setOnClickListener{
+        clientsBtn.setOnClickListener {
             val intentToClients = Intent(this, ClientActivity::class.java)
             startActivity(intentToClients)
         }
 
-     ordersBtn.setOnClickListener {
-         val intentToOrders = Intent(this, OrderActivity::class.java)
-         startActivity(intentToOrders)
-     }
+        ordersBtn.setOnClickListener {
+            val intentToOrders = Intent(this, OrderActivity::class.java)
+            startActivity(intentToOrders)
+        }
 
         paymentBtn.setOnClickListener {
             val intentToPayments = Intent(this, PaymentActivity::class.java)
@@ -63,26 +63,41 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intentToDepartment)
         }
 
-
-
         logoutBtn.setOnClickListener { finish() }
 
 
-
-
-
-
-
-
-      /* db = MyDataBase.getAppDataBase(this)
+        /*db = MyDataBase.getAppDataBase(this)
         Observable.fromCallable{
             db?.positionDao()?.insert(Position(name = "Мэнэджер", departmentId = 1))
-            db?.positionDao()?.insert(Position(name = "Старший  Мэнэджер", departmentId = 2))
-            db?.positionDao()?.insert(Position(name = "Администратор", departmentId = 4))
+            db?.positionDao()?.insert(Position(name = "Курьер", departmentId = 2))
+            db?.positionDao()?.insert(Position(name = "Горничная", departmentId = 3))
+            db?.positionDao()?.insert(Position(name = "Старший Мэнэджер", departmentId = 4))
+            db?.positionDao()?.insert(Position(name = "Бугалтер", departmentId = 5))
+            db?.positionDao()?.insert(Position(name = "Старшая Горниная", departmentId = 6))
+            db?.positionDao()?.insert(Position(name = "Администратор", departmentId = 7))
+            db?.positionDao()?.insert(Position(name = "Сис. админ", departmentId = 8))
+            db?.positionDao()?.insert(Position(name = "Швейцар", departmentId = 9))
+
+
         }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()*/
+            .subscribe()
+*/
+
+
+
+         /*db = MyDataBase.getAppDataBase(this)
+          Observable.fromCallable{
+              db?.categoryDao()?.insert(Category(name = "люкс", personAmount = 2, cost = 2000))
+              db?.categoryDao()?.insert(Category(name = "полулюкс", personAmount = 1, cost = 800))
+              db?.categoryDao()?.insert(Category(name = "вип", personAmount = 4, cost = 5000))
+              db?.categoryDao()?.insert(Category(name = "эконом", personAmount = 1, cost = 600))
+
+          }
+              .subscribeOn(Schedulers.io())
+              .observeOn(AndroidSchedulers.mainThread())
+              .subscribe()*/
 
 /*
 
@@ -103,12 +118,10 @@ class MenuActivity : AppCompatActivity() {
             .subscribe()*/
 
 
-
         /* Observable.just(AppDatabase.getAppDataBase(this)?.hotelDao()?.insert(Hotel(address = "balbal", phone =  333333)))
              .subscribeOn(Schedulers.io())
              .observeOn(Schedulers.io())
              .subscribe()*/
-
 
 
         /*Observable.fromCallable {
@@ -119,7 +132,6 @@ class MenuActivity : AppCompatActivity() {
             .subscribe()*/
 
     }
-
 
 
 }

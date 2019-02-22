@@ -5,5 +5,5 @@ import android.arch.persistence.room.PrimaryKey
 @Entity
 data class Payment(@PrimaryKey(autoGenerate = true)
                    val id: Int? = null,
-                   val creditNumber: Int,
+                   val creditType: String,
                    val cost: Int)

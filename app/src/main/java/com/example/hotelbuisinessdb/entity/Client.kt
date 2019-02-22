@@ -10,5 +10,5 @@ data class Client(
     val name: String,
     val secondName: String,
     val passportNumber: Int,
-    val phone: Int
+    val phone: String
 )

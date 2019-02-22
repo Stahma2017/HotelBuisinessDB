@@ -23,7 +23,7 @@ class ClientDetailsActivity : AppCompatActivity() {
                     name = firstName.text.toString(),
                     secondName = secondName.text.toString(),
                     passportNumber = Integer.parseInt(passport.text.toString()),
-                    phone = Integer.parseInt(phone.text.toString())
+                    phone = phone.text.toString()
                 )
             )
             Toast.makeText(this, "Клиент добавлен", Toast.LENGTH_SHORT).show()

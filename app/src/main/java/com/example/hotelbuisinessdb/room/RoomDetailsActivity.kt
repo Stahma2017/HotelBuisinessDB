@@ -26,6 +26,5 @@ class RoomDetailsActivity : AppCompatActivity() {
             )
             Toast.makeText(this, "Комната добавлена", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
